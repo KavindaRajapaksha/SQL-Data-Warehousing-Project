@@ -14,7 +14,7 @@ Parameters:
     This stored procedure does not accept any parameters or return any values.
 
 Usage Example:
-    EXEC Silver.load_silver;
+    EXEC silver.load_silver;
 ===============================================================================
 */
 
@@ -51,10 +51,10 @@ BEGIN
             TRIM(cst_firstname) AS cst_firstname,
             TRIM(cst_lastname) AS cst_lastname,
             CASE 
-                WHEN UPPER(TRIM(cst_material_status)) = 'S' THEN 'Single'
-                WHEN UPPER(TRIM(cst_material_status)) = 'M' THEN 'Married'
+                WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
+                WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
                 ELSE 'n/a'
-            END AS cst_marital_status, -- Map material_status -> marital_status
+            END AS cst_marital_status,
             CASE 
                 WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
                 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
@@ -251,3 +251,4 @@ BEGIN
         PRINT '=========================================='
     END CATCH
 END
+GO
